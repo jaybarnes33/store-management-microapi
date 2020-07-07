@@ -20,8 +20,12 @@ const Format = {
       tlds: { allow: true },
     })
     .trim(),
-  username: Joi.string().min(4).max(20),
-  password: Joi.string().min(8).max(20),
+  username: Joi.string().min(4).max(20).trim(),
+  password: Joi.string().min(8).max(20).trim(),
+  storeName: Joi.string().min(4).trim(),
+  storeLocation: Joi.string().min(4).trim(),
+  phone: Joi.number(),
+  storeTagLine: Joi.string(),
 };
 
 const validations = {
@@ -46,6 +50,26 @@ const validations = {
       email: Format.email,
       username: Format.username,
       password: Format.password,
+    });
+    return validator(schema, req.body, res, next);
+  },
+  validateStoreCreation: () => (req, res, next) => {
+    const schema = Joi.object().keys({
+      email: Format.email,
+      storeName: Format.storeName.required(),
+      storeLocation: Format.storeLocation.required(),
+      phone: Format.phone.required(),
+      storeTagLine: Format.storeTagLine.required(),
+    });
+    return validator(schema, req.body, res, next);
+  },
+  validateStoreUpdate: () => (req, res, next) => {
+    const schema = Joi.object().keys({
+      email: Format.email,
+      storeName: Format.storeName,
+      storeLocation: Format.storeLocation,
+      phone: Format.phone,
+      storeTagLine: Format.storeTagLine,
     });
     return validator(schema, req.body, res, next);
   },

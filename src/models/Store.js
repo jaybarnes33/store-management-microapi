@@ -5,6 +5,7 @@ const StoresSchema = new Schema(
     storeName: {
       type: String,
       required: true,
+      unique: true,
     },
     ownerId: {
       type: SchemaTypes.ObjectId,
@@ -26,6 +27,7 @@ const StoresSchema = new Schema(
     storeTagLine: {
       type: String,
       required: true,
+      unique: true,
     },
   },
   { timestamps: true }

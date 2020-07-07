@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const Validation = require("../utils/Validator");
 const UserController = require("../controllers/UserController");
+const StoreController = require("../controllers/StoreController");
 
 router.post(
   "/register",
@@ -32,5 +33,20 @@ router
     })
   )
   .put(UserController.newToken());
+
+router
+  .route("/stores")
+  .get(StoreController.getStores())
+  .post(Validation.validateStoreCreation(), StoreController.createStore());
+const { getOneStore: GOS } = StoreController;
+router
+  .route("/stores/:store")
+  .get(GOS())
+  .put(
+    Validation.validateStoreUpdate(),
+    GOS(true),
+    StoreController.updateStore()
+  )
+  .delete(GOS(true), StoreController.deleteStore());
 
 module.exports = router;

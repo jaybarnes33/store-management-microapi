@@ -32,8 +32,8 @@ mongoose.Promise = global.Promise; // Tell Mongoose to use ES6 promises
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(helmet());
-app.use("/v1", router);
 app.use("/v1/api-docs", swaggerUi.serve, swaggerUi.setup(openApiDocumentation));
+app.use("/v1", router);
 
 app.get("/", (req, res) => {
   res.redirect("/v1/api-docs");

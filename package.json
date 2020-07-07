@@ -1,0 +1,21 @@
+{
+  "name": "store-service",
+  "version": "1.0.0",
+  "description": "store microservice for my customer app",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mhizterkeyz (@script)",
+  "license": "ISC",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "bcrypt": "^5.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "helmet": "^3.23.3",
+    "mongoose": "^5.9.22",
+    "swagger-ui-express": "^4.1.4"
+  }
+}

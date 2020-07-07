@@ -18,4 +18,4 @@ RUN npm install --save swagger-ui-express sharp jsonwebtoken
 
 EXPOSE 5000
 
-CMD [ "node", "app.js" ]
+CMD [ "node", "index.js" ]

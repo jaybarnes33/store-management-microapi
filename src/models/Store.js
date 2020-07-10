@@ -9,7 +9,7 @@ const StoresSchema = new Schema(
     },
     ownerId: {
       type: SchemaTypes.ObjectId,
-      ref: "user",
+      ref: "jlsmm_user",
       required: true,
     },
     email: {
@@ -33,4 +33,4 @@ const StoresSchema = new Schema(
   { timestamps: true }
 );
 
-module.exports = model("store", StoresSchema);
+module.exports = model("jlsmm_store", StoresSchema);

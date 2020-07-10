@@ -72,4 +72,4 @@ UsersSchema.methods = {
   },
 };
 
-module.exports = model("user", UsersSchema);
+module.exports = model("jlsmm_user", UsersSchema);
